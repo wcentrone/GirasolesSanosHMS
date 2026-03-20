@@ -489,7 +489,7 @@ const DashboardView = ({ children, onSelectChild }) => {
       </div>
       <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,marginBottom:24}}>
         {kpis.map((kpi,i)=>(
-          <Card key={i} style={{padding:20,background:kpi.bg,border:`1px solid ${kpi.color}15`}}>
+          <Card key={i} style={{padding:20,background:kpi.bg,border:`1px solid ${kpi.color}15`}} onClick={()=>{}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"start"}}>
               <div>
                 <div style={{fontSize:10,color:S.slate,fontWeight:700,letterSpacing:0.8,marginBottom:6,fontFamily:S.body,textTransform:"uppercase"}}>{kpi.label}</div>
