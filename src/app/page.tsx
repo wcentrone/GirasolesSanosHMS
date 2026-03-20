@@ -489,7 +489,7 @@ const DashboardView = ({ children, onSelectChild }) => {
       </div>
       <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,marginBottom:24}}>
         {kpis.map((kpi,i)=>(
-          <Card key={i} style={{padding:20,background:kpi.bg,border:`1px solid ${kpi.color}15`}} onClick={()=>{}}>
+          <Card key={i} onClick={()=>{}} style={{padding:20,background:kpi.bg,border:`1px solid ${kpi.color}15`}} onClick={()=>{}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"start"}}>
               <div>
                 <div style={{fontSize:10,color:S.slate,fontWeight:700,letterSpacing:0.8,marginBottom:6,fontFamily:S.body,textTransform:"uppercase"}}>{kpi.label}</div>
@@ -703,7 +703,7 @@ const ChildDetailView = ({ child, onBack }) => {
           <Card onClick={()=>{}}><h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📜 Historia Familiar</h3><p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.familyHistory}</p></Card>
           <Card onClick={()=>{}}><h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📌 Situación Actual</h3><p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.currentSituation}</p></Card>
           {child.incidents.length>0&&(
-            <Card variant="red" style={{gridColumn:"1 / -1"}}>
+            <Card variant="red" onClick={()=>{}} style={{gridColumn:"1 / -1"}}>
               <h3 style={{fontSize:15,fontWeight:700,color:S.redDark,marginBottom:10,fontFamily:S.body}}>⚠️ Incidentes Registrados</h3>
               {child.incidents.map((inc,i)=>(
                 <div key={i} style={{padding:12,background:S.white,borderRadius:S.sm,marginBottom:8,border:`1px solid ${S.mist}`}}>
@@ -774,7 +774,7 @@ const ChildDetailView = ({ child, onBack }) => {
       {activeTab==="family"&&(
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
           {[{title:"👩 Madre",data:child.mother},{title:"👨 Padre",data:child.father}].map(({title,data},i)=>(
-            <Card key={i}>
+            <Card key={i} onClick={()=>{}}>
               <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>{title}</h3>
               {data.name&&<InfoRow label="Nombre" value={data.name}/>}{data.dob&&<InfoRow label="F. Nacimiento" value={data.dob} mono/>}
               {data.dni&&<InfoRow label="DNI" value={data.dni} mono/>}{data.address&&<InfoRow label="Dirección" value={data.address}/>}
@@ -811,7 +811,7 @@ const ChildDetailView = ({ child, onBack }) => {
           </Card>
           <div style={{display:"flex",flexDirection:"column",gap:16}}>
             {child.objectives.map((obj,i)=>(
-              <Card key={obj.id} style={{borderLeft:`4px solid ${CHART_COLORS[i]}`}}>
+              <Card key={obj.id} onClick={()=>{}} style={{borderLeft:`4px solid ${CHART_COLORS[i]}`}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"start",marginBottom:10}}>
                   <h3 style={{fontSize:15,fontWeight:700,color:S.ink,margin:0,fontFamily:S.body,flex:1,paddingRight:12}}>{obj.text}</h3>
                   <StatusBadge status={obj.status}/>
@@ -838,7 +838,7 @@ const ChildDetailView = ({ child, onBack }) => {
             {label:"Casey Life Skills",value:child.lifeDomains.lifeSkills.caseyScore,max:100,color:S.gold,desc:"Habilidades de vida"},
             {label:"Conectividad Social",value:child.lifeDomains.transition.socialConnectedness,max:100,color:S.info,desc:"Red de apoyo"},
           ].map((metric,i)=>(
-            <Card key={i} style={{display:"flex",alignItems:"center",gap:20}}>
+            <Card key={i} onClick={()=>{}} style={{display:"flex",alignItems:"center",gap:20}}>
               <ProgressRing value={metric.value} max={metric.max} size={72} color={metric.color}/>
               <div>
                 <div style={{fontSize:15,fontWeight:700,color:S.ink,fontFamily:S.body}}>{metric.label}</div>
@@ -889,7 +889,7 @@ const MIMPReportsView = ({ children }) => (
     </div>
     <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:24}}>
       {[{title:"Plan de Trabajo Individual",subtitle:"Anexo N° 01 — Para cada NNA en situación de riesgo",icon:"📋"},{title:"Informe de Seguimiento",subtitle:"Reporte periódico de avance de objetivos y actividades",icon:"📊"},{title:"Informe de Situación",subtitle:"Diagnóstico psicosocial y situación familiar actualizada",icon:"🏠"},{title:"Notificación de Incidentes",subtitle:"Reporte de incidentes para UPE/DEMUNA",icon:"⚠️"}].map((report,i)=>(
-        <Card key={i} hover>
+        <Card key={i} hover onClick={()=>{}}>
           <div style={{display:"flex",gap:14}}>
             <div style={{width:52,height:52,borderRadius:S.md,background:S.tealGhost,display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,flexShrink:0}}>{report.icon}</div>
             <div style={{flex:1}}>
@@ -940,9 +940,9 @@ const COEView = ({ children }) => {
         <p style={{color:S.slate,fontSize:13,margin:"4px 0 0",fontFamily:S.body}}>Modelo de atención basado en trauma, motivación y fortalezas — HBI</p>
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16,marginBottom:24}}>
-        <Card variant="gold" style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:S.goldDark}}>{avgProgress}</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Módulos Completados (Prom.)</div></Card>
-        <Card variant="teal" style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:S.tealDark}}>12</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Módulos Totales</div></Card>
-        <Card variant="success" style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:"#0d6b35"}}>{children.filter(c=>c.coeProgress.modulesCompleted>=12).length}</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Programa Completo</div></Card>
+        <Card variant="gold" onClick={()=>{}} style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:S.goldDark}}>{avgProgress}</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Módulos Completados (Prom.)</div></Card>
+        <Card variant="teal" onClick={()=>{}} style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:S.tealDark}}>12</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Módulos Totales</div></Card>
+        <Card variant="success" onClick={()=>{}} style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:"#0d6b35"}}>{children.filter(c=>c.coeProgress.modulesCompleted>=12).length}</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Programa Completo</div></Card>
       </div>
       <Card onClick={()=>{}} style={{marginBottom:20}}>
         <SectionTitle icon="🌟" title="Progreso por Módulo CoE" subtitle="Estado de cada residente en las 12 etapas"/>
@@ -977,7 +977,7 @@ const COEView = ({ children }) => {
         <SectionTitle icon="📖" title="Principios Fundamentales CoE" subtitle="La excelencia no es hacer. Es ser."/>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
           {[{title:"Trauma-Informado",desc:"Comprender cómo el trauma afecta el cerebro, el cuerpo y el comportamiento de los NNA.",icon:"🧠",color:S.red},{title:"Basado en Fortalezas",desc:"Cada persona tiene fortalezas innatas que pueden ser descubiertas y desarrolladas.",icon:"💪",color:S.teal},{title:"Motivación Mejorada",desc:"El cambio nace de la motivación intrínseca, no de la coerción externa.",icon:"🔥",color:S.gold},{title:"Conexión Relacional",desc:"La sanación ocurre en el contexto de relaciones seguras y auténticas.",icon:"🤝",color:S.success}].map((p,i)=>(
-            <Card key={i} hover style={{padding:16,borderLeft:`4px solid ${p.color}`}}>
+            <Card key={i} hover onClick={()=>{}} style={{padding:16,borderLeft:`4px solid ${p.color}`}}>
               <div style={{fontSize:28,marginBottom:8}}>{p.icon}</div>
               <div style={{fontSize:14,fontWeight:700,color:S.ink,marginBottom:4,fontFamily:S.body}}>{p.title}</div>
               <div style={{fontSize:12,color:S.slate,lineHeight:1.6,fontFamily:S.body}}>{p.desc}</div>
@@ -1022,7 +1022,7 @@ const ArticulateView = ({ children }) => {
           const scores = children.map(c=>c.articulateModules.find(m=>mod.name.includes(m.name.split(" ")[0]))?.score).filter(Boolean);
           const avgScore = scores.length?Math.round(scores.reduce((a,b)=>a+b,0)/scores.length):null;
           return (
-            <Card key={mod.id} hover style={{borderTop:`3px solid ${mod.color}`}}>
+            <Card key={mod.id} hover onClick={()=>{}} style={{borderTop:`3px solid ${mod.color}`}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
                 <Badge label={mod.category} variant="silver" size="sm"/>
                 <span style={{fontSize:11,color:S.slate,fontFamily:S.body}}>⏱ {mod.duration}</span>
@@ -1221,7 +1221,7 @@ const ReportsView = () => {
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16,marginBottom:24}}>
         {reports.map((report,i)=>(
-          <Card key={i} hover style={{cursor:"pointer"}}>
+          <Card key={i} hover onClick={()=>{}} style={{cursor:"pointer"}}>
             <div style={{display:"flex",alignItems:"start",gap:12}}>
               <div style={{width:48,height:48,borderRadius:S.md,flexShrink:0,background:`${report.color}12`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:24}}>{report.icon}</div>
               <div><h3 style={{fontSize:14,fontWeight:700,color:S.ink,margin:"0 0 4px",fontFamily:S.body}}>{report.title}</h3><p style={{fontSize:11,color:S.slate,margin:0,lineHeight:1.5,fontFamily:S.body}}>{report.desc}</p></div>
