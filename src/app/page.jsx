@@ -1244,7 +1244,7 @@ const ReportsView = () => {
 
 // ── MAIN APP ───────────────────────────────────────────────────
 
-export default function Page() {
+export default function App() {
   const [activeView, setActiveView] = useState("dashboard");
   const [selectedChildId, setSelectedChildId] = useState(null);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
