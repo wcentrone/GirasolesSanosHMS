@@ -77,7 +77,7 @@ const Sunflower = ({ size=32 }) => (
   </svg>
 );
 
-const Card = ({ children, variant="default", hover=false, onClick, style={} }) => {
+const Card = ({ children, variant="default", hover=false, onClick=()=>{}, style={} }) => {
   const [hov, setHov] = useState(false);
   const variants = {
     default: { background: S.white, border:`1px solid ${S.mist}`, shadow:S.shadowSm },
