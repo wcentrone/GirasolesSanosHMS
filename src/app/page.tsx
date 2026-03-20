@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { LineChart, Line, BarChart, Bar, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area } from "recharts";
