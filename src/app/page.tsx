@@ -102,7 +102,7 @@ const Card = ({ children, variant="default", hover=false, onClick, style={} }) =
   );
 };
 
-const Button = ({ children, variant="primary", size="md", onClick, disabled=false, icon, style={} }) => {
+const Button = ({ children, variant="primary", size="md", onClick=()=>{}, disabled=false, icon=null, style={} }) => {
   const [hov, setHov] = useState(false);
   const variants = {
     primary: { bg: S.gradBridge, color:"#FFF", border:"none" },
