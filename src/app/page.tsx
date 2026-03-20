@@ -501,7 +501,7 @@ const DashboardView = ({ children, onSelectChild }) => {
         ))}
       </div>
       <div style={{display:"grid",gridTemplateColumns:"2fr 1fr",gap:20,marginBottom:24}}>
-        <Card>
+        <Card onClick={()=>{}}>
           <SectionTitle icon="📈" title="Tendencia de Estado Anímico" subtitle="Últimos 7 días — check-in diario"/>
           <ResponsiveContainer width="100%" height={220}>
             <AreaChart data={moodTrend}>
@@ -516,7 +516,7 @@ const DashboardView = ({ children, onSelectChild }) => {
             </AreaChart>
           </ResponsiveContainer>
         </Card>
-        <Card>
+        <Card onClick={()=>{}}>
           <SectionTitle icon="🎯" title="Dominios de Vida" subtitle="Promedios del programa"/>
           <ResponsiveContainer width="100%" height={220}>
             <RadarChart data={domainData}>
@@ -554,7 +554,7 @@ const DashboardView = ({ children, onSelectChild }) => {
           })}
         </div>
       </Card>
-      <Card>
+      <Card onClick={()=>{}}>
         <SectionTitle icon="🧑‍⚕️" title="Bienestar del Equipo" subtitle="Check-in diario del personal cuidador"/>
         <ResponsiveContainer width="100%" height={160}>
           <BarChart data={STAFF_MOOD_DATA}>
@@ -581,7 +581,7 @@ const ChildrenListView = ({ children, onSelectChild }) => (
       </div>
       <Button variant="primary" icon="➕">Nuevo Ingreso</Button>
     </div>
-    <Card>
+    <Card onClick={()=>{}}>
       <div style={{overflowX:"auto"}}>
         <table style={{width:"100%",borderCollapse:"collapse"}}>
           <thead>
@@ -680,13 +680,13 @@ const ChildDetailView = ({ child, onBack }) => {
       <TabBar tabs={tabs} active={activeTab} onChange={setActiveTab}/>
       {activeTab==="overview"&&(
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>📋 Datos del Caso</h3>
             <InfoRow label="DNI" value={child.dni} mono/><InfoRow label="Fecha de Nacimiento" value={child.dob} mono/>
             <InfoRow label="Tipo de Protección" value={child.protectionType}/><InfoRow label="Fecha de Ingreso" value={child.dateEntered} mono/>
             <InfoRow label="Agencia de Referencia" value={child.referralAgency}/>
           </Card>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:4}}>📊 Habilidades de Vida</h3>
             <ResponsiveContainer width="100%" height={200}>
               <RadarChart data={radarData}>
@@ -700,8 +700,8 @@ const ChildDetailView = ({ child, onBack }) => {
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📝 Diagnóstico Psicosocial</h3>
             <p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.psychDiagnosis}</p>
           </Card>
-          <Card><h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📜 Historia Familiar</h3><p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.familyHistory}</p></Card>
-          <Card><h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📌 Situación Actual</h3><p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.currentSituation}</p></Card>
+          <Card onClick={()=>{}}><h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📜 Historia Familiar</h3><p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.familyHistory}</p></Card>
+          <Card onClick={()=>{}}><h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📌 Situación Actual</h3><p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.currentSituation}</p></Card>
           {child.incidents.length>0&&(
             <Card variant="red" style={{gridColumn:"1 / -1"}}>
               <h3 style={{fontSize:15,fontWeight:700,color:S.redDark,marginBottom:10,fontFamily:S.body}}>⚠️ Incidentes Registrados</h3>
@@ -718,14 +718,14 @@ const ChildDetailView = ({ child, onBack }) => {
       )}
       {activeTab==="health"&&(
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>🏥 Salud Física</h3>
             <InfoRow label="Última consulta" value={`${child.health.lastMdVisit} — ${child.health.visitReason}`}/>
             <InfoRow label="Diagnóstico" value={child.health.diagnosis}/><InfoRow label="Vacunas" value={child.health.vaccines}/>
             <InfoRow label="Talla" value={`${child.health.height} cm`} mono/><InfoRow label="Peso" value={`${child.health.weight} kg`} mono/>
             <InfoRow label="IMC" value={child.health.bmi} mono/>
           </Card>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>🦷 Salud Dental</h3>
             <InfoRow label="Última visita" value={child.health.dental.lastVisit} mono/>
             <InfoRow label="Caries" value={child.health.dental.cavities}/><InfoRow label="Extracciones" value={child.health.dental.extractions}/>
@@ -746,7 +746,7 @@ const ChildDetailView = ({ child, onBack }) => {
       )}
       {activeTab==="education"&&(
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>📚 Indicadores Educativos</h3>
             <div style={{marginBottom:16}}>
               <div style={{display:"flex",justifyContent:"space-between",marginBottom:6,fontSize:12,fontFamily:S.body}}><span style={{color:S.slate,fontWeight:600}}>Asistencia</span><span style={{color:S.ink,fontFamily:S.mono,fontWeight:700}}>{child.lifeDomains.educational.attendance}%</span></div>
@@ -759,7 +759,7 @@ const ChildDetailView = ({ child, onBack }) => {
             <InfoRow label="Notas" value={child.lifeDomains.educational.grades}/>
             <InfoRow label="Conectividad Social" value={`${child.lifeDomains.educational.socialConnectedness}/5`}/>
           </Card>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>📈 Tendencia Anímica</h3>
             <ResponsiveContainer width="100%" height={200}>
               <AreaChart data={child.moodHistory.map(m=>({date:m.date.slice(5),mood:m.mood}))}>
@@ -782,12 +782,12 @@ const ChildDetailView = ({ child, onBack }) => {
             </Card>
           ))}
           {child.guardian&&(
-            <Card>
+            <Card onClick={()=>{}}>
               <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>🏠 Tutor/Guardián</h3>
               <InfoRow label="Nombre" value={child.guardian.name}/>{child.guardian.dni&&<InfoRow label="DNI" value={child.guardian.dni} mono/>}{child.guardian.phone&&<InfoRow label="Teléfono" value={child.guardian.phone} mono/>}
             </Card>
           )}
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>📊 Indicadores Familiares</h3>
             <InfoRow label="Frecuencia de Visitas" value={child.lifeDomains.family.visitFrequency}/>
             <InfoRow label="Nivel de Comodidad" value={`${child.lifeDomains.family.comfortLevel}/5`}/>
@@ -855,7 +855,7 @@ const ChildDetailView = ({ child, onBack }) => {
       )}
       {activeTab==="transition"&&(
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>📄 Documentación</h3>
             {[{label:"Acta de Nacimiento",value:child.lifeDomains.transition.birthCert},{label:"DNI",value:child.lifeDomains.transition.dni},{label:"CV Elaborado",value:child.lifeDomains.transition.cv},{label:"Plan de Seguridad",value:child.lifeDomains.transition.safetyPlan}].map((item,i)=>(
               <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:`1px solid ${S.mist}`}}>
@@ -864,7 +864,7 @@ const ChildDetailView = ({ child, onBack }) => {
               </div>
             ))}
           </Card>
-          <Card>
+          <Card onClick={()=>{}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>🎓 Progreso Educativo</h3>
             <InfoRow label="Secundaria" value={child.lifeDomains.transition.secondaryProgress}/>
             <InfoRow label="Conectividad" value={`${child.lifeDomains.transition.socialConnectedness}/100`}/>
@@ -901,7 +901,7 @@ const MIMPReportsView = ({ children }) => (
         </Card>
       ))}
     </div>
-    <Card>
+    <Card onClick={()=>{}}>
       <SectionTitle icon="📋" title="Planes de Trabajo Individuales" subtitle="Estado actual de todos los residentes"/>
       <div style={{overflowX:"auto"}}>
         <table style={{width:"100%",borderCollapse:"collapse"}}>
@@ -973,7 +973,7 @@ const COEView = ({ children }) => {
           </table>
         </div>
       </Card>
-      <Card>
+      <Card onClick={()=>{}}>
         <SectionTitle icon="📖" title="Principios Fundamentales CoE" subtitle="La excelencia no es hacer. Es ser."/>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
           {[{title:"Trauma-Informado",desc:"Comprender cómo el trauma afecta el cerebro, el cuerpo y el comportamiento de los NNA.",icon:"🧠",color:S.red},{title:"Basado en Fortalezas",desc:"Cada persona tiene fortalezas innatas que pueden ser descubiertas y desarrolladas.",icon:"💪",color:S.teal},{title:"Motivación Mejorada",desc:"El cambio nace de la motivación intrínseca, no de la coerción externa.",icon:"🔥",color:S.gold},{title:"Conexión Relacional",desc:"La sanación ocurre en el contexto de relaciones seguras y auténticas.",icon:"🤝",color:S.success}].map((p,i)=>(
@@ -1129,7 +1129,7 @@ const AIPlansView = ({ children }) => {
       </Card>
       {loading&&(<Card style={{textAlign:"center",padding:48}}><div style={{fontSize:40,marginBottom:16}}>🤖</div><div style={{fontFamily:S.display,fontSize:20,color:S.ink,marginBottom:8}}>Generando plan con IA…</div><div style={{fontSize:13,color:S.slate,fontFamily:S.body}}>Analizando el perfil de {child?.fullName?.split(" ")[0]} y generando recomendaciones personalizadas</div></Card>)}
       {aiResponse&&!loading&&(
-        <Card>
+        <Card onClick={()=>{}}>
           <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:20}}>
             <div style={{width:40,height:40,borderRadius:S.md,background:S.gradBridge,display:"flex",alignItems:"center",justifyContent:"center",fontSize:20}}>🤖</div>
             <h2 style={{fontSize:19,fontWeight:400,fontFamily:S.display,color:S.ink,margin:0}}>{aiResponse.title}</h2>
@@ -1162,7 +1162,7 @@ const WellnessView = ({ children }) => {
         <p style={{color:S.slate,fontSize:13,margin:"4px 0 0",fontFamily:S.body}}>Monitoreo integral del bienestar emocional, social y de desarrollo</p>
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,marginBottom:24}}>
-        <Card>
+        <Card onClick={()=>{}}>
           <SectionTitle icon="💛" title="WIT-Y · ACE · Conectividad Social"/>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={witYData}>
@@ -1172,7 +1172,7 @@ const WellnessView = ({ children }) => {
             </BarChart>
           </ResponsiveContainer>
         </Card>
-        <Card>
+        <Card onClick={()=>{}}>
           <SectionTitle icon="📊" title="Distribución Casey Life Skills"/>
           <ResponsiveContainer width="100%" height={260}>
             <PieChart>
@@ -1184,7 +1184,7 @@ const WellnessView = ({ children }) => {
           </ResponsiveContainer>
         </Card>
       </div>
-      <Card>
+      <Card onClick={()=>{}}>
         <SectionTitle icon="😊" title="Check-in de Estado Anímico — Hoy" subtitle="Monitoreo diario de cada residente"/>
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
           {children.map(child=>{
@@ -1229,7 +1229,7 @@ const ReportsView = () => {
           </Card>
         ))}
       </div>
-      <Card>
+      <Card onClick={()=>{}}>
         <SectionTitle icon="📤" title="Exportación Programada" subtitle="Configure envío automático de reportes"/>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:12}}>
           {["Semanal","Quincenal","Mensual","Trimestral"].map(freq=>(
