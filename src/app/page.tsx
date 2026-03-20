@@ -528,7 +528,7 @@ const DashboardView = ({ children, onSelectChild }) => {
           </ResponsiveContainer>
         </Card>
       </div>
-      <Card style={{marginBottom:24}}>
+      <Card onClick={()=>{}} style={{marginBottom:24}}>
         <SectionTitle icon="👦" title="Residentes" subtitle="Vista rápida — clic para perfil completo"/>
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
           {children.map(child=>{
@@ -696,7 +696,7 @@ const ChildDetailView = ({ child, onBack }) => {
               </RadarChart>
             </ResponsiveContainer>
           </Card>
-          <Card style={{gridColumn:"1 / -1"}}>
+          <Card onClick={()=>{}} style={{gridColumn:"1 / -1"}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>📝 Diagnóstico Psicosocial</h3>
             <p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.psychDiagnosis}</p>
           </Card>
@@ -731,7 +731,7 @@ const ChildDetailView = ({ child, onBack }) => {
             <InfoRow label="Caries" value={child.health.dental.cavities}/><InfoRow label="Extracciones" value={child.health.dental.extractions}/>
             <InfoRow label="Prevención" value={child.health.dental.prevention}/>
           </Card>
-          <Card style={{gridColumn:"1 / -1"}}>
+          <Card onClick={()=>{}} style={{gridColumn:"1 / -1"}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:14}}>🧠 Salud Conductual</h3>
             <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12}}>
               {[{label:"Diagnóstico",value:child.health.behavioral.diagnosis},{label:"Tratamiento",value:child.health.behavioral.treatment},{label:"Proveedor",value:child.health.behavioral.provider},{label:"Plan",value:child.health.behavioral.plan}].map((item,i)=>(
@@ -793,7 +793,7 @@ const ChildDetailView = ({ child, onBack }) => {
             <InfoRow label="Nivel de Comodidad" value={`${child.lifeDomains.family.comfortLevel}/5`}/>
             <InfoRow label="Idioma" value={child.lifeDomains.family.language}/>
           </Card>
-          <Card style={{gridColumn:"1 / -1"}}>
+          <Card onClick={()=>{}} style={{gridColumn:"1 / -1"}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>🤝 Situación Familiar</h3>
             <p style={{fontSize:13,lineHeight:1.7,color:S.inkSoft,margin:0,fontFamily:S.body}}>{child.familySituation}</p>
           </Card>
@@ -801,7 +801,7 @@ const ChildDetailView = ({ child, onBack }) => {
       )}
       {activeTab==="plan"&&(
         <div>
-          <Card style={{marginBottom:20,background:S.gradBridge,position:"relative",overflow:"hidden"}}>
+          <Card onClick={()=>{}} style={{marginBottom:20,background:S.gradBridge,position:"relative",overflow:"hidden"}}>
             <AndeanPattern opacity={0.06} color="#FFF"/>
             <div style={{position:"relative",zIndex:1}}>
               <div style={{fontFamily:S.display,fontSize:20,color:"#FFF",marginBottom:4}}>Plan de Trabajo Individual — Anexo N° 01</div>
@@ -847,7 +847,7 @@ const ChildDetailView = ({ child, onBack }) => {
               </div>
             </Card>
           ))}
-          <Card style={{gridColumn:"1 / -1"}}>
+          <Card onClick={()=>{}} style={{gridColumn:"1 / -1"}}>
             <h3 style={{fontSize:15,fontWeight:400,fontFamily:S.display,color:S.ink,marginBottom:10}}>🌟 Actividades Extracurriculares</h3>
             <p style={{fontSize:14,color:S.ink,fontFamily:S.body,margin:0}}>{child.lifeDomains.wellness.extracurricular}</p>
           </Card>
@@ -944,7 +944,7 @@ const COEView = ({ children }) => {
         <Card variant="teal" style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:S.tealDark}}>12</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Módulos Totales</div></Card>
         <Card variant="success" style={{textAlign:"center",padding:20}}><div style={{fontSize:36,fontWeight:400,fontFamily:S.display,color:"#0d6b35"}}>{children.filter(c=>c.coeProgress.modulesCompleted>=12).length}</div><div style={{fontSize:11,color:S.slate,fontWeight:700,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Programa Completo</div></Card>
       </div>
-      <Card style={{marginBottom:20}}>
+      <Card onClick={()=>{}} style={{marginBottom:20}}>
         <SectionTitle icon="🌟" title="Progreso por Módulo CoE" subtitle="Estado de cada residente en las 12 etapas"/>
         <div style={{overflowX:"auto"}}>
           <table style={{borderCollapse:"collapse",width:"100%"}}>
@@ -1006,7 +1006,7 @@ const ArticulateView = ({ children }) => {
         <h1 style={{fontSize:28,fontWeight:400,fontFamily:S.display,color:S.ink,margin:0}}>Módulos Educativos</h1>
         <p style={{color:S.slate,fontSize:13,margin:"4px 0 0",fontFamily:S.body}}>Capacitación en línea vía Articulate Rise — Integrado con el modelo CoE</p>
       </div>
-      <Card style={{marginBottom:24,background:S.gradBridge,position:"relative",overflow:"hidden"}}>
+      <Card onClick={()=>{}} style={{marginBottom:24,background:S.gradBridge,position:"relative",overflow:"hidden"}}>
         <AndeanPattern opacity={0.06} color="#FFF"/>
         <div style={{position:"relative",zIndex:1,display:"flex",alignItems:"center",gap:20}}>
           <div style={{fontSize:48}}>📚</div>
@@ -1105,7 +1105,7 @@ const AIPlansView = ({ children }) => {
         <h1 style={{fontSize:28,fontWeight:400,fontFamily:S.display,color:S.ink,margin:0}}>IA — Planes de Atención</h1>
         <p style={{color:S.slate,fontSize:13,margin:"4px 0 0",fontFamily:S.body}}>Generación inteligente de planes de tratamiento, guías de recursos y estrategias para cuidadores</p>
       </div>
-      <Card style={{marginBottom:20}}>
+      <Card onClick={()=>{}} style={{marginBottom:20}}>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16,marginBottom:16}}>
           <div>
             <label style={{fontSize:11,fontWeight:700,color:S.slate,display:"block",marginBottom:6,fontFamily:S.body,textTransform:"uppercase",letterSpacing:0.8}}>Residente</label>
@@ -1127,7 +1127,7 @@ const AIPlansView = ({ children }) => {
         </div>
         {child&&(<div style={{padding:"10px 14px",background:S.cloud,borderRadius:S.sm,fontSize:12,color:S.slate,fontFamily:S.mono}}><strong style={{fontFamily:S.body,color:S.ink}}>{child.fullName}</strong> · {child.age} años · {child.health.behavioral.diagnosis} · ACE: {child.lifeDomains.wellness.aceScore} · WIT-Y: {child.lifeDomains.wellness.witY} · CoE: {child.coeProgress.modulesCompleted}/{child.coeProgress.totalModules}</div>)}
       </Card>
-      {loading&&(<Card style={{textAlign:"center",padding:48}}><div style={{fontSize:40,marginBottom:16}}>🤖</div><div style={{fontFamily:S.display,fontSize:20,color:S.ink,marginBottom:8}}>Generando plan con IA…</div><div style={{fontSize:13,color:S.slate,fontFamily:S.body}}>Analizando el perfil de {child?.fullName?.split(" ")[0]} y generando recomendaciones personalizadas</div></Card>)}
+      {loading&&(<Card onClick={()=>{}} style={{textAlign:"center",padding:48}}><div style={{fontSize:40,marginBottom:16}}>🤖</div><div style={{fontFamily:S.display,fontSize:20,color:S.ink,marginBottom:8}}>Generando plan con IA…</div><div style={{fontSize:13,color:S.slate,fontFamily:S.body}}>Analizando el perfil de {child?.fullName?.split(" ")[0]} y generando recomendaciones personalizadas</div></Card>)}
       {aiResponse&&!loading&&(
         <Card onClick={()=>{}}>
           <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:20}}>
