@@ -806,7 +806,7 @@ const ChildDetailView = ({ child, onBack }) => {
             <div style={{position:"relative",zIndex:1}}>
               <div style={{fontFamily:S.display,fontSize:20,color:"#FFF",marginBottom:4}}>Plan de Trabajo Individual — Anexo N° 01</div>
               <div style={{fontSize:12,color:"rgba(255,255,255,0.7)",fontFamily:S.body,marginBottom:12}}>MIMP · UPE · Caso: {child.caseNumber}</div>
-              <Button variant="gold" icon="📄" size="sm">Exportar PDF</Button>
+              <Button variant="gold" icon="📄" size="sm" onClick={()=>{}}>Exportar PDF</Button>
             </div>
           </Card>
           <div style={{display:"flex",flexDirection:"column",gap:16}}>
@@ -895,7 +895,7 @@ const MIMPReportsView = ({ children }) => (
             <div style={{flex:1}}>
               <h3 style={{fontSize:15,fontWeight:700,color:S.ink,margin:"0 0 4px",fontFamily:S.body}}>{report.title}</h3>
               <p style={{fontSize:12,color:S.slate,margin:"0 0 14px",fontFamily:S.body,lineHeight:1.5}}>{report.subtitle}</p>
-              <Button size="sm" variant={i<2?"secondary":"ghost"}>Generar Informe</Button>
+              <Button size="sm" variant={i<2?"secondary":"ghost"} onClick={()=>{}}>Generar Informe</Button>
             </div>
           </div>
         </Card>
@@ -919,7 +919,7 @@ const MIMPReportsView = ({ children }) => (
                 <td style={{padding:"11px 14px",fontSize:11,fontFamily:S.mono,color:S.slate}}>{child.caseNumber}</td>
                 {child.objectives.map(obj=>(<td key={obj.id} style={{padding:"11px 14px"}}><StatusBadge status={obj.status}/></td>))}
                 <td style={{padding:"11px 14px",fontSize:11,fontFamily:S.mono,color:S.slate}}>{child.objectives.filter(o=>o.status!=="completed").map(o=>o.followUp).sort()[0]||"—"}</td>
-                <td style={{padding:"11px 14px"}}><Button size="sm" variant="primary">PDF</Button></td>
+                <td style={{padding:"11px 14px"}}><Button size="sm" variant="primary" onClick={()=>{}}>PDF</Button></td>
               </tr>
             ))}
           </tbody>
@@ -1141,8 +1141,8 @@ const AIPlansView = ({ children }) => {
             </div>
           ))}
           <div style={{display:"flex",gap:10,marginTop:16,flexWrap:"wrap"}}>
-            <Button size="sm" variant="primary" icon="📄">Exportar PDF</Button>
-            <Button size="sm" variant="secondary" icon="📋">Agregar al Plan MIMP</Button>
+            <Button size="sm" variant="primary" icon="📄" onClick={()=>{}}>Exportar PDF</Button>
+            <Button size="sm" variant="secondary" icon="📋" onClick={()=>{}}>Agregar al Plan MIMP</Button>
             <Button size="sm" variant="ghost" icon="🔄" onClick={generatePlan}>Regenerar</Button>
           </div>
         </Card>
