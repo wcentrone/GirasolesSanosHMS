@@ -223,7 +223,7 @@ const ProgressRing = ({ value, max=100, size=64, color=S.teal }) => {
   );
 };
 
-const SectionTitle = ({ icon, title, subtitle, style={} }) => (
+const SectionTitle = ({ icon, title, subtitle="", style={} }) => (
   <div style={{ marginBottom:20, ...style }}>
     <h2 style={{ fontSize:19, fontWeight:400, fontFamily:S.display, color:S.ink, margin:0, display:"flex", alignItems:"center", gap:10 }}>
       <span style={{fontSize:22}}>{icon}</span>{title}
