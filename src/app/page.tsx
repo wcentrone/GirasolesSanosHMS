@@ -579,7 +579,7 @@ const ChildrenListView = ({ children, onSelectChild }) => (
         <h1 style={{fontSize:28,fontWeight:400,fontFamily:S.display,color:S.ink,margin:0}}>Residentes</h1>
         <p style={{color:S.slate,fontSize:13,margin:"4px 0 0",fontFamily:S.body}}>{children.length} jóvenes en cuidado residencial</p>
       </div>
-      <Button variant="primary" icon="➕">Nuevo Ingreso</Button>
+      <Button variant="primary" icon="➕" onClick={()=>{}}>Nuevo Ingreso</Button>
     </div>
     <Card onClick={()=>{}}>
       <div style={{overflowX:"auto"}}>
